@@ -53,7 +53,8 @@
             <geometry>
                 <cylinder length="0.1" radius="0.06" />
             </geometry>
-            <material name="blue">    <!-- BLUE had rgba values described in include file -->
+            <material name="blue">
+                <color rgba="0.2 0.2 1 1"/>
             </material>
         </visual>
         <collision>
@@ -62,8 +63,10 @@
                 <cylinder length="0.1" radius="0.06" />
             </geometry>
         </collision>
-        <xacro:inertial_cylinder mass="1.5" length="0.1" radius="0.06">
+        <inertial>
             <origin xyz="0 0 0.05" rpy="0 0 0"/>
+            <mass value="1.5" />
+            <inertia ixx="0.001331" ixy="0.0" ixz="0.0" iyy="0.001331" iyz="0.0" izz="0.0027" />
         </inertial>
     </link>
 
@@ -85,17 +88,21 @@
             <geometry>
                 <box size="0.01 0.01 0.01" />
             </geometry>
-            <material name="orange" />
+            <material name="orange">
+                <color rgba="1 0.3 0.1 1"/>
+            </material>
         </visual>
         <collision>
-            <origin xyz="0 0.03 0.1" rpy="0 0 0"/>
+            <origin xyz="0 0.03 0.105" rpy="0 0 0"/>
             <geometry>
                 <box size="0.01 0.01 0.01" />
             </geometry>
         </collision>
-        <xacro:inertial_box mass="0.05" x="0.01" y="0.01" z="0.01">
-            <origin xyz="0 0.03 0.1" rpy="0 0 0"/>
-        </xacro:inertial_box>
+        <inertial>
+            <origin xyz="0 0.03 0.105" rpy="0 0 0"/>
+            <mass value="0.05" />
+            <inertia ixx="0.0000001" ixy="0.0" ixz="0.0" iyy="0.0000001" iyz="0.0" izz="0.0000001" />
+        </inertial>
     </link>
 
 
@@ -116,7 +123,9 @@
             <geometry>
                 <box size="0.04 0.02 0.15" />
             </geometry>
-            <material name="white" />
+            <material name="white">
+                <color rgba="1 1 1 1"/>
+            </material>
         </visual>
         <collision>
             <origin xyz="0 0.01 0.075" rpy="0 0 0"/>
@@ -124,9 +133,11 @@
                 <box size="0.04 0.02 0.15" />
             </geometry>
         </collision>
-        <xacro:inertial_box mass="0.1" x="0.04" y="0.02" z="0.15">
+        <inertial>
             <origin xyz="0 0.01 0.075" rpy="0 0 0"/>
-        </xacro:inertial_box>
+            <mass value="0.1" />
+            <inertia ixx="0.0001908" ixy="0.0" ixz="0.0" iyy="0.0002008" iyz="0.0" izz="0.0000167" />
+        </inertial>
     </link>
 
 
@@ -147,7 +158,9 @@
             <geometry>
                 <box size="0.04 0.02 0.15" />
             </geometry>
-            <material name="white" />
+            <material name="white">
+                <color rgba="1 1 1 1"/>
+            </material>
         </visual>
         <collision>
             <origin xyz="0 -0.01 0.075" rpy="0 0 0"/>
@@ -155,9 +168,11 @@
                 <box size="0.04 0.02 0.15" />
             </geometry>
         </collision>
-        <xacro:inertial_box mass="0.1" x="0.04" y="0.02" z="0.15">
+        <inertial>
             <origin xyz="0 -0.01 0.075" rpy="0 0 0"/>
-        </xacro:inertial_box>
+            <mass value="0.1" />
+            <inertia ixx="0.0001908" ixy="0.0" ixz="0.0" iyy="0.0002008" iyz="0.0" izz="0.0000167" />
+        </inertial>
     </link>
 
 
@@ -178,7 +193,9 @@
             <geometry>
                 <box size="0.04 0.02 0.15" />
             </geometry>
-            <material name="white" />
+            <material name="white">
+                <color rgba="1 1 1 1"/>
+            </material>
         </visual>
         <collision>
             <origin xyz="0 0.01 0.075" rpy="0 0 0"/>
@@ -186,9 +203,11 @@
                 <box size="0.04 0.02 0.15" />
             </geometry>
         </collision>
-        <xacro:inertial_box mass="0.1" x="0.04" y="0.02" z="0.15">
+        <inertial>
             <origin xyz="0 0.01 0.075" rpy="0 0 0"/>
-        </xacro:inertial_box>
+            <mass value="0.1" />
+            <inertia ixx="0.0001908" ixy="0.0" ixz="0.0" iyy="0.0002008" iyz="0.0" izz="0.0000167" />
+        </inertial>
     </link>
 
 
@@ -202,20 +221,24 @@
 
 
 
-    <link name="hand_link">
+    <link name="hand_link">  <!-- DONE, i think -->
         <visual>
             <origin xyz="0 -0.02 0" rpy="0 0 0"/>
             <geometry>
                 <box size="0.04 0.04 0.04" />
             </geometry>
-            <material name="orange" />
+            <material name="orange">
+                <color rgba="1 0.3 0.1 1"/>
+            </material>
         </visual>
         <visual>
             <origin xyz="0 -0.02 0.04" rpy="0 0 0"/>
             <geometry>
                 <box size="0.04 0.12 0.04" />
             </geometry>
-            <material name="orange" />
+            <material name="orange">
+                <color rgba="1 0.3 0.1 1"/>
+            </material>
         </visual>
         <collision>
             <origin xyz="0 -0.02 0.04" rpy="0 0 0"/>
@@ -223,13 +246,15 @@
                 <box size="0.04 0.12 0.04" />
             </geometry>
         </collision>
-        <xacro:inertial_box mass="1" x="0.04" y="0.12" z="0.08">
+        <inertial>
             <origin xyz="0 -0.02 0.02" rpy="0 0 0"/>
-        </xacro:inertial_box>
+            <mass value="1" />
+            <inertia ixx="0.001733" ixy="0.0" ixz="0.0" iyy="0.0006667" iyz="0.0" izz="0.001333" />
+        </inertial>
     </link>
 
 
-    <xacro:include filename="example_gazebo.xacro" />
+    <!-- <xacro:include filename="example_gazebo.xacro" /> -->
 
 
 </robot>
