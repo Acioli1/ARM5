@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
+
+  
+    <link name="world"></link>
+
+
+   
+    <joint name="base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="world"/>
+        <child link="base_link"/>        
+    </joint>
+
+
+   
+
+    <link name="base_link">   
+        <visual>
+            <origin xyz="0 0 0.05" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.06" />
+            </geometry>
+            <material name="blue">
+                <color rgba="0.2 0.2 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.05" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.06" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0.05" rpy="0 0 0"/>
+            <mass value="1.5" />
+            <inertia ixx="0.001331" ixy="0.0" ixz="0.0" iyy="0.001331" iyz="0.0" izz="0.0027" />
+        </inertial>
+    </link>
+
+
+    
+    <joint name="joint_base_servo" type="revolute">     
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="servo_link"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="${-pi/2}" upper="${pi/2}" velocity="100" effort="100"/> 
+    </joint>
+
+
+
+    <link name="servo_link"> 
+        <visual>
+            <origin xyz="0 0.03 0.105" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+            <material name="orange">
+                <color rgba="1 0.3 0.1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0.03 0.105" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0.03 0.105" rpy="0 0 0"/>
+            <mass value="0.05" />
+            <inertia ixx="0.0000001" ixy="0.0" ixz="0.0" iyy="0.0000001" iyz="0.0" izz="0.0000001" />
+        </inertial>
+    </link>
+
+
+
+    <joint name="joint_servo_shaft1" type="revolute"> 
+        <origin xyz="0 -0.05 0" rpy="0 0 0"/>
+        <parent link="servo_link"/>
+        <child link="shaft1_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="${-pi/2}" upper="${pi/2}" velocity="100" effort="100"/> 
+    </joint>
+
+
+
+    <link name="shaft1_link">   
+        <visual>
+            <origin xyz="0 0.01 0.075" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.02 0.15" />
+            </geometry>
+            <material name="white">
+                <color rgba="1 1 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0.01 0.075" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.02 0.15" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0.01 0.075" rpy="0 0 0"/>
+            <mass value="0.1" />
+            <inertia ixx="0.0001908" ixy="0.0" ixz="0.0" iyy="0.0002008" iyz="0.0" izz="0.0000167" />
+        </inertial>
+    </link>
+
+
+
+    <joint name="joint_shaft1_shaft2" type="revolute">  
+        <origin xyz="0 -0.01 0.15" rpy="0 0 0"/>
+        <parent link="shaft1_link"/>
+        <child link="shaft2_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="${-pi/2}" upper="${pi/2}" velocity="100" effort="100"/> 
+    </joint>
+
+
+
+    <link name="shaft2_link">  
+        <visual>
+            <origin xyz="0 -0.01 0.075" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.02 0.15" />
+            </geometry>
+            <material name="white">
+                <color rgba="1 1 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 -0.01 0.075" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.02 0.15" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 -0.01 0.075" rpy="0 0 0"/>
+            <mass value="0.1" />
+            <inertia ixx="0.0001908" ixy="0.0" ixz="0.0" iyy="0.0002008" iyz="0.0" izz="0.0000167" />
+        </inertial>
+    </link>
+
+
+
+    <joint name="joint_shaft2_shaft3" type="revolute">  
+        <origin xyz="0 0.01 0.15" rpy="0 0 0"/>
+        <parent link="shaft2_link"/>
+        <child link="shaft3_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="${-pi/2}" upper="${pi/2}" velocity="100" effort="100"/> 
+    </joint>
+
+
+    
+    <link name="shaft3_link">  
+        <visual>
+            <origin xyz="0 0.01 0.075" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.02 0.15" />
+            </geometry>
+            <material name="white">
+                <color rgba="1 1 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0.01 0.075" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.02 0.15" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0.01 0.075" rpy="0 0 0"/>
+            <mass value="0.1" />
+            <inertia ixx="0.0001908" ixy="0.0" ixz="0.0" iyy="0.0002008" iyz="0.0" izz="0.0000167" />
+        </inertial>
+    </link>
+
+
+    <joint name="joint_shaft3_hand" type="revolute">  
+        <origin xyz="0 -0.01 0.15" rpy="0 0 0"/>
+        <parent link="shaft3_link"/>
+        <child link="hand_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="${-pi/2}" upper="${pi/2}" velocity="100" effort="100"/> 
+    </joint>
+
+
+
+    <link name="hand_link">  
+        <visual>
+            <origin xyz="0 -0.02 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.04 0.04" />
+            </geometry>
+            <material name="orange">
+                <color rgba="1 0.3 0.1 1"/>
+            </material>
+        </visual>
+        <visual>
+            <origin xyz="0 -0.02 0.04" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.12 0.04" />
+            </geometry>
+            <material name="orange">
+                <color rgba="1 0.3 0.1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 -0.02 0.04" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.12 0.04" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 -0.02 0.02" rpy="0 0 0"/>
+            <mass value="1" />
+            <inertia ixx="0.001733" ixy="0.0" ixz="0.0" iyy="0.0006667" iyz="0.0" izz="0.001333" />
+        </inertial>
+    </link>
+
+    <joint name="joint_hand_leftfinger" type="prismatic">  
+        <origin xyz="0 -0.045 0.02" rpy="0 0 0"/>
+        <parent link="hand_link"/>
+        <child link="leftfinger_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="0" upper="0.03" velocity="100" effort="100"/> 
+    </joint>
+   
+    <link name="leftfinger_link">  
+        <visual>
+            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.03 0.08" />
+            </geometry>
+            <material name="blue">
+                <color rgba="0.2 0.2 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.03 0.08" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <mass value="0.1" />
+            <inertia ixx="0.000060833" ixy="0.0" ixz="0.0" iyy="0.00006666" iyz="0.0" izz="0.000020833" />
+        </inertial>
+    </link>
+
+    <joint name="joint_hand_rightfinger" type="prismatic">  
+        <origin xyz="0 0.045 0.02" rpy="0 0 0"/>
+        <parent link="hand_link"/>
+        <child link="rightfinger_link"/>
+        <axis xyz="0 -1 0"/>
+        <limit lower="0.0" upper="0.03" velocity="100" effort="100"/> 
+    </joint>
+   
+    <link name="rightfinger_link">  
+        <visual>
+            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.03 0.08" />
+            </geometry>
+            <material name="blue">
+                <color rgba="0.2 0.2 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.04 0.03 0.08" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <mass value="0.1" />
+            <inertia ixx="0.000060833" ixy="0.0" ixz="0.0" iyy="0.00006666" iyz="0.0" izz="0.000020833" />
+        </inertial>
+    </link>
+
+</robot>
