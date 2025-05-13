@@ -231,7 +231,7 @@
    
     <link name="leftfinger_link">  
         <visual>
-            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <origin xyz="0 0.0 0.08" rpy="0 0 0"/>
             <geometry>
                 <box size="0.04 0.03 0.08" />
             </geometry>
@@ -240,13 +240,13 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <origin xyz="0 0.0 0.08" rpy="0 0 0"/>
             <geometry>
                 <box size="0.04 0.03 0.08" />
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <origin xyz="0 0.0 0.08" rpy="0 0 0"/>
             <mass value="0.1" />
             <inertia ixx="0.000060833" ixy="0.0" ixz="0.0" iyy="0.00006666" iyz="0.0" izz="0.000020833" />
         </inertial>
@@ -262,7 +262,7 @@
    
     <link name="rightfinger_link">  
         <visual>
-            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <origin xyz="0 0.0 0.08" rpy="0 0 0"/>
             <geometry>
                 <box size="0.04 0.03 0.08" />
             </geometry>
@@ -271,13 +271,13 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <origin xyz="0 0.0 0.08" rpy="0 0 0"/>
             <geometry>
                 <box size="0.04 0.03 0.08" />
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="0 0.0 0.04" rpy="0 0 0"/>
+            <origin xyz="0 0.0 0.08" rpy="0 0 0"/>
             <mass value="0.1" />
             <inertia ixx="0.000060833" ixy="0.0" ixz="0.0" iyy="0.00006666" iyz="0.0" izz="0.000020833" />
         </inertial>
